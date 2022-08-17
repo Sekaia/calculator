@@ -15,12 +15,17 @@ def evaluate_calculation():
     try:
         result = str(eval(calculation))
         calculation = ""
+        text_result.delete(1.0, "end")
+        text_result.insert(1.0, result)
     except:
-        pass
+        clear_field()
+        text_result.insert(1.0, "Error")
 
 
 def clear_field():
-    pass
+    global calculation
+    calculation = ""
+    text_result.delete(1.0, "end")
 
 
 root = tk.Tk()
